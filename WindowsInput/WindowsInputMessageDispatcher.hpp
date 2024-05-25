@@ -13,9 +13,7 @@ namespace WindowsInput
         void DispatchInput(std::vector<INPUT> inputs) override
         {
             if (inputs.empty())
-            {
-                throw std::invalid_argument("input array was empty");
-            }
+                return;
             UINT count = static_cast<UINT>(inputs.size());
             UINT successful = SendInput(count, inputs.data(), sizeof(INPUT));
             if (successful != count)
