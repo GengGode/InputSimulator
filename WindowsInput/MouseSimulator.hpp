@@ -61,6 +61,7 @@ namespace WindowsInput
         IMouseSimulator &MoveMouseToPositionOnVirtualDesktop(double absoluteX, double absoluteY)
         {
             std::vector<INPUT> inputList = InputBuilder().AddAbsoluteMouseMovementOnVirtualDesktop(static_cast<int>(std::trunc(absoluteX)), static_cast<int>(std::trunc(absoluteY))).ToArray();
+            sendSimulatedInput(inputList);
             return *this;
         }
 
